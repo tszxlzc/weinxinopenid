@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 public class urlEncode{
 	public static void main(String[] args){
-		String url = "http://192.168.75.34:8080/weixinopenid/index";
+		String url = "http://weixinopenid.sinaapp.com/index.jsp";
 		String urlEncoded = urlEncodeUTF8(url);
 		System.out.println(urlEncoded);
 	}

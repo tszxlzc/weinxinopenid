@@ -34,9 +34,12 @@ public class IndexAction extends ActionSupport {
         String openId ="123";
         WeixinUserDao weixinUserDao = new WeixinUserDao();
         TaWeixinUser user = new TaWeixinUser();
-        if (!"authdeny".equals(code)) {
+        if (!"authdeny".equals(code)&&code!=null) {
                 WeiXinOauth2Token weiXinOauth2Token = AdvancedUtil
                                 .getOauth2AccessToken(Constants.APPID,Constants.SECRET, code);
+                if(weiXinOauth2Token==null){
+                	return "index";
+                }
                 openId = weiXinOauth2Token.getOpenId();
                 user.setAccessToken(weiXinOauth2Token.getAccessToken());
                 user.setExpiresIn(weiXinOauth2Token.getExpiresIn());
@@ -45,8 +48,8 @@ public class IndexAction extends ActionSupport {
                 user.setOpenId(openId);
                 user.setRequest_time(new Date());
                 weixinUserDao.addWeixinUser(user);
+                request.getSession().setAttribute("openId", openId);
         }
-        request.getSession().setAttribute("openId", openId);
         return "index";
 	}
 	

@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name ="ta_weixin_user")
+@Table(name = "ta_weixin_user")
 public class TaWeixinUser implements Serializable {
 	/**
 	 * 

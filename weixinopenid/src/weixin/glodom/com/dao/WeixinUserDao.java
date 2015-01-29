@@ -7,12 +7,12 @@ import org.hibernate.cfg.Configuration;
 
 import weixin.glodom.com.po.TaWeixinUser;
 
+@SuppressWarnings("deprecation")
 public class WeixinUserDao {
 
 	public void addWeixinUser(TaWeixinUser user){
 		Configuration config = new AnnotationConfiguration();
 		config.configure();
-		@SuppressWarnings("deprecation")
 		SessionFactory sessionFactory = config.buildSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
